@@ -8,13 +8,13 @@ El sitio utiliza **HTML, CSS, JavaScript y PHP**, y el formulario de contacto pe
 
 ## Estructura del proyecto
 /config
-    db.php           # Conexión a la base de datos con PDO
+db.php # Conexión a la base de datos con PDO
 /imagenes
-    imagen1.jpeg     # Imagen usada en la página principal
-contacto.php         # Formulario de contacto y procesamiento en PHP
-estilos.css          # Estilos del sitio
-index.html           # Página principal con menú de navegación
-script.js            # Funcionalidad adicional con JavaScript
+imagen1.jpeg # Imagen usada en la página principal
+contacto.php # Formulario de contacto y procesamiento en PHP
+estilos.css # Estilos del sitio
+index.html # Página principal con menú de navegación
+script.js # Funcionalidad adicional con JavaScript
 
 ## Funcionalidades
 - Menú de navegación: Inicio, Sobre mí, Hobbies, Contacto.
