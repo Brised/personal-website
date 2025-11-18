@@ -612,7 +612,7 @@ section {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-image: url('images/about-profile.jpg');
+    background-image: url('imagenes/imagen1.jpeg');
     background-size: cover;
     background-position: center;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
