@@ -1,17 +1,25 @@
 <?php
-require_once "config/db.php"; 
+require_once "config/db.php";
 
 $mensaje_confirmacion = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $nombre  = trim($_POST["nombre"]);
+    // Sanitización segura
+    $nombre  = htmlspecialchars(trim($_POST["nombre"]), ENT_QUOTES, 'UTF-8');
     $correo  = trim($_POST["correo"]);
-    $mensaje = trim($_POST["mensaje"]);
+    $mensaje = htmlspecialchars(trim($_POST["mensaje"]), ENT_QUOTES, 'UTF-8');
 
+    // Validación de campos vacíos
     if (empty($nombre) || empty($correo) || empty($mensaje)) {
         $mensaje_confirmacion = "Por favor, completa todos los campos.";
-    } else {
+    }
+    // Validación de correo
+    elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $mensaje_confirmacion = "Por favor, ingresa un correo válido.";
+    }
+    else {
+        // Consulta SQL preparada segura
         $sql = "INSERT INTO mensajes (nombre, correo, mensaje) VALUES (?, ?, ?)";
         $stmt = $pdo->prepare($sql);
 
